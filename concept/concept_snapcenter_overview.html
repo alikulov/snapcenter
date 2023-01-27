@@ -161,9 +161,9 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar"><div id="version-dropdown-new" class="custom-dropdown" >
-  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.7">
+  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.8">
     <label>Version</label>
-    <span translate="no" class="notranslate">SnapCenter Software 4.7</span>
+    <span translate="no" class="notranslate">SnapCenter Software 4.8</span>
     <img src="/us-en/snapcenter/images/chevron_up.svg" alt="" class="custom-icon chevrondown invisible" />
     <img src="/us-en/snapcenter/images/chevron_down.svg" alt="" class="custom-icon chevronup" />
   </div>
@@ -171,6 +171,13 @@
   <ul class="custom-dropdown-menu"><li>
       
       <a href="https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html" target="_self">
+        <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.8</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/us-en/snapcenter-4.7/concept/concept_snapcenter_overview.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.7</span></span>
       </a>
                      
@@ -646,6 +653,8 @@
     
 
   
+
+
 
 
 
@@ -3016,11 +3025,11 @@
 </script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li 
       data-pdf-exists="true" 
-      data-pdf-filename="SnapCenter Software 4.7 docs"
+      data-pdf-filename="SnapCenter Software 4.8 docs"
       data-li-level="1#" 
       class=" "
     ><a class="na-navbar-padding" href="/us-en/snapcenter/index.html">
-        SnapCenter Software 4.7 docs
+        SnapCenter Software 4.8 docs
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Release notes"
@@ -3388,6 +3397,13 @@
     ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_iis_application_pools_to_enable_active_directory_read_permissions.html">
         Configure IIS Application Pools to enable Active Directory read permissions
       </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure audit log settings"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_audit_log_settings.html">
+        Configure audit log settings
+      </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Add storage systems"
       data-li-level="2#" 
@@ -6759,7 +6775,7 @@
         
 
         <li class="n-breadcrumb__list-item">
-          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.7</a>
+          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.8</a>
         </li>
 
       </ul>
@@ -6776,7 +6792,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-10-25 13:04:39 +0000">10/25/2022</time>
+    <time datetime="2023-01-23 06:55:07 +0000">01/23/2023</time>
     
   
 
@@ -6786,6 +6802,14 @@
           alt="netapp-nsriram"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/64957347?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" class="ext-link-indicator" href="https://github.com/netapp-soumikd">
+    <img  class="avatar avatar-small"
+          alt="netapp-soumikd"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/64966556?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -6841,6 +6865,9 @@
 <li>
 <p>Data that is on ONTAP Select primary systems</p>
 </li>
+<li>
+<p>Data that is on ONTAP FAS or AFF primary &amp; secondary systems and protected to local StorageGRID object storage (using NetApp BlueXP cloud backup integration)</p>
+</li>
 </ul>
 </div>
 </li>
@@ -6849,7 +6876,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Data that is on ONTAP FAS or AFF primary systems and replicated to Cloud Volumes ONTAP or NetApp Private Storage secondary systems</p>
+<p>Data that is on ONTAP FAS or AFF primary systems and replicated to Cloud Volumes ONTAP</p>
+</li>
+<li>
+<p>Data that is on ONTAP FAS or AFF primary and secondary systems and protected to object and archive storage in cloud (using NetApp BlueXP Cloud Backup integration)</p>
 </li>
 </ul>
 </div>
@@ -6860,6 +6890,9 @@
 <ul>
 <li>
 <p>Data that is on Cloud Volumes ONTAP (formerly ONTAP Cloud) primary systems</p>
+</li>
+<li>
+<p>Data that is on Amazon FSX for ONTAP</p>
 </li>
 </ul>
 </div>
@@ -6922,10 +6955,10 @@
 <p>For more information on REST APIs see <a href="https://docs.netapp.com/us-en/snapcenter/sc-automation/overview_rest_apis.html">REST API overview</a>.</p>
 </div>
 <div class="paragraph">
-<p>For more information on Windows cmdlets see <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2883300" target="_blank" rel="noopener">SnapCenter Software Cmdlet Reference Guide</a>.</p>
+<p>For more information on Windows cmdlets see <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2885482" target="_blank" rel="noopener">SnapCenter Software Cmdlet Reference Guide</a>.</p>
 </div>
 <div class="paragraph">
-<p>For more information on UNIX commands see <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2883301" target="_blank" rel="noopener">SnapCenter Software Command Reference Guide</a>.</p>
+<p>For more information on UNIX commands see <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2885486" target="_blank" rel="noopener">SnapCenter Software Command Reference Guide</a>.</p>
 </div>
 </li>
 <li>
@@ -7454,7 +7487,7 @@ MySQL, DB2, and MongoDB custom plug-ins are supported via the NetApp communities
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Terms of Use</a>

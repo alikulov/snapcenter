@@ -161,9 +161,9 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar"><div id="version-dropdown-new" class="custom-dropdown" >
-  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.7">
+  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.8">
     <label>Version</label>
-    <span translate="no" class="notranslate">SnapCenter Software 4.7</span>
+    <span translate="no" class="notranslate">SnapCenter Software 4.8</span>
     <img src="/us-en/snapcenter/images/chevron_up.svg" alt="" class="custom-icon chevrondown invisible" />
     <img src="/us-en/snapcenter/images/chevron_down.svg" alt="" class="custom-icon chevronup" />
   </div>
@@ -171,6 +171,13 @@
   <ul class="custom-dropdown-menu"><li>
       
       <a href="https://docs.netapp.com/us-en/snapcenter/protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux_or_aix.html" target="_self">
+        <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.8</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/us-en/snapcenter-4.7/protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux_or_aix.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.7</span></span>
       </a>
                      
@@ -644,6 +651,8 @@
     
 
   
+
+
 
 
 
@@ -3016,11 +3025,11 @@
 </script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li 
       data-pdf-exists="true" 
-      data-pdf-filename="SnapCenter Software 4.7 docs"
+      data-pdf-filename="SnapCenter Software 4.8 docs"
       data-li-level="1#" 
       class=" "
     ><a class="na-navbar-padding" href="/us-en/snapcenter/index.html">
-        SnapCenter Software 4.7 docs
+        SnapCenter Software 4.8 docs
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Release notes"
@@ -3388,6 +3397,13 @@
     ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_iis_application_pools_to_enable_active_directory_read_permissions.html">
         Configure IIS Application Pools to enable Active Directory read permissions
       </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure audit log settings"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_audit_log_settings.html">
+        Configure audit log settings
+      </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Add storage systems"
       data-li-level="2#" 
@@ -6759,7 +6775,7 @@
         
 
         <li class="n-breadcrumb__list-item">
-          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.7</a>
+          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.8</a>
         </li>
 
       </ul>
@@ -6776,24 +6792,24 @@
 <p class="page-details">
   
     
-    <time datetime="2022-10-13 16:18:12 +0000">10/13/2022</time>
+    <time datetime="2022-12-22 18:16:48 +0000">12/22/2022</time>
     
   
 
 <span>Contributors
-  <a target="_blank" class="ext-link-indicator" href="https://github.com/netapp-nsriram">
-    <img  class="avatar avatar-small"
-          alt="netapp-nsriram"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/64957347?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" class="ext-link-indicator" href="https://github.com/netapp-soumikd">
     <img  class="avatar avatar-small"
           alt="netapp-soumikd"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/64966556?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" class="ext-link-indicator" href="https://github.com/netapp-nsriram">
+    <img  class="avatar avatar-small"
+          alt="netapp-nsriram"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/64957347?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -6823,7 +6839,7 @@
 <li>
 <p>You must have enabled the password-based SSH connection for the root or non-root user.</p>
 <div class="paragraph">
-<p>SnapCenter Plug-in for Oracle Database can be installed by a non-root user. However, you should configure the sudo privileges for the non-root user to install and start the plug-in process. After installing the plug-in, the processes will be running as an effective root user.</p>
+<p>SnapCenter Plug-in for Oracle Database can be installed by a non-root user. However, you should configure the sudo privileges for the non-root user to install and start the plug-in process. After installing the plug-in, the processes will be running as an effective non-root user.</p>
 </div>
 </li>
 <li>
@@ -6836,7 +6852,19 @@
 <p>Create credentials with authentication mode as Linux or AIX for the install user.</p>
 </li>
 <li>
-<p>You must have installed Java 1.8.x, 64-bit, on your Linux or AIX host.</p>
+<p>You must have installed Java 1.8.x or Java 11, 64-bit, on your Linux or AIX host.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Ensure that you have installed only the certified edition of JAVA 11 on the Linux host.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>For information to download JAVA, see:</p>
 </div>
@@ -6965,8 +6993,27 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Required software packages</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Java 1.8.x (64-bit)Oracle Java and OpenJDK flavors</p>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Java 1.8.x (64-bit) Oracle Java and OpenJDK flavors</p>
+</li>
+<li>
+<p>Java 11 (64-bit) Oracle Java and OpenJDK flavors</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Ensure that you have installed only the certified edition of JAVA 11 on the Linux host.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>If you have upgraded JAVA to the latest version, you must ensure that the JAVA_HOME option located at /var/opt/snapcenter/spl/etc/spl.properties is set to the correct JAVA version and the correct path.</p>
@@ -6980,7 +7027,7 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <div class="sect2">
 <h3 id="configure-sudo-privileges-for-non-root-users-for-linux-host">Configure sudo privileges for non-root users for Linux host</h3>
 <div class="paragraph">
-<p>SnapCenter 2.0 and later releases allow a non-root user to install the SnapCenter Plug-ins Package for Linux and to start the plug-in process. You should configure sudo privileges for the non-root user to provide access to several paths.</p>
+<p>SnapCenter 2.0 and later releases allow a non-root user to install the SnapCenter Plug-ins Package for Linux and to start the plug-in process. The plug-in processes will be running as an effective non-root user. You should configure sudo privileges for the non-root user to provide access to several paths.</p>
 </div>
 <div class="paragraph">
 <p><strong>What you will need</strong></p>
@@ -6988,10 +7035,7 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <div class="ulist">
 <ul>
 <li>
-<p>Sudo version between 1.8.7 and 1.8.19P2.</p>
-</li>
-<li>
-<p>Ensure that the non-root user is part of the Oracle installation group.</p>
+<p>Sudo version 1.8.7 or later.</p>
 </li>
 <li>
 <p>Edit the <em>/etc/ssh/sshd_config</em> file to configure the message authentication code algorithms: MACs hmac-sha2-256 and MACs hmac-sha2-512.</p>
@@ -7028,7 +7072,7 @@ MACs hmac-sha2-256</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>/home/<em>SUDO_USER</em>/.sc_netapp/snapcenter_linux_host_plugin.bin</p>
+<p>/home/<em>LINUX_USER</em>/.sc_netapp/snapcenter_linux_host_plugin.bin</p>
 </li>
 <li>
 <p>/custom_location/NetApp/snapcenter/spl/installation/plugins/uninstall</p>
@@ -7037,18 +7081,6 @@ MACs hmac-sha2-256</pre>
 <p>/custom_location/NetApp/snapcenter/spl/bin/spl</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/snapcenter/images/note.svg" alt="Note">
-</td>
-<td class="content">
-If you are managing a RAC setup, the non-root user should be an Oracle user and it cannot be just any non-root OS user.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p><strong>Steps</strong></p>
@@ -7062,21 +7094,39 @@ If you are managing a RAC setup, the non-root user should be an Oracle user and 
 <p>Add the following lines to the /etc/sudoers file by using the visudo Linux utility.</p>
 <div class="listingblock">
 <div class="content">
-<pre>Cmnd_Alias SCCMD = sha224:checksum_value== /home/<em>SUDO_USER</em>/.sc_netapp/snapcenter_linux_host_plugin.bin,
-/opt/NetApp/snapcenter/spl/installation/plugins/uninstall,
-/opt/NetApp/snapcenter/spl/bin/spl
-Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/<em>SUDO_USER</em>/.sc_netapp/Linux_Prechecks.sh
-<em>SUDO_USER</em> ALL=(ALL) NOPASSWD:SETENV: SCCMD, PRECHECKCMD
-Defaults: <em>SUDO_USER</em> env_keep=JAVA_HOME
-Defaults: <em>SUDO_USER</em> !visiblepw
-Defaults: <em>SUDO_USER</em> !requiretty</pre>
+<pre>Cmnd_Alias HPPLCMD = sha224:checksum_value== /home/<em>LINUX_USER</em>/.sc_netapp/snapcenter_linux_host_plugin.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
+Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/<em>LINUX_USER</em>/.sc_netapp/Linux_Prechecks.sh
+Cmnd_Alias CONFIGCHECKCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+Cmnd_Alias SCCCMDEXECUTOR =checksum_value== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
+<em>LINUX_USER</em> ALL=(ALL) NOPASSWD:SETENV: HPPLCMD, PRECHECKCMD, CONFIGCHECKCMD, SCCCMDEXECUTOR, SCCMD
+Defaults: <em>LINUX_USER</em> !visiblepw
+Defaults: <em>LINUX_USER</em> !requiretty</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If you are having a RAC setup, along with the other allowed commands, you should add the following to the /etc/sudoers file: '/&lt;crs_home&gt;/bin/olsnodes'
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><em>SUDO_USER</em> is the name of the non-root user that you created.</p>
+<p>You can obtain the value of <em>crs_home</em> from the <em>/etc/oracle/olr.loc</em> file.</p>
 </div>
 <div class="paragraph">
-<p>You can obtain the checksum value from the <strong>oracle_checksum.txt</strong> file, which is located at <em>C:\ProgramData\NetApp\SnapCenter\Package Repository</em>.</p>
+<p><em>LINUX_USER</em> is the name of the non-root user that you created.</p>
+</div>
+<div class="paragraph">
+<p>You can obtain the <em>checksum_value</em> from the <strong>oracle_checksum.txt</strong> file, which is located at <em>C:\ProgramData\NetApp\SnapCenter\Package Repository</em>.</p>
 </div>
 <div class="paragraph">
 <p>If you have specified a custom location, the location will be <em>custom_path\NetApp\SnapCenter\Package Repository</em>.</p>
@@ -7093,19 +7143,6 @@ The example should be used only as a reference for creating your own data.
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Best Practice:</strong> For security reasons, you should remove the sudo entry after completing every installation or upgrade.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -7179,8 +7216,15 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Required software packages</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Java 1.8.x (64-bit)IBM Java</p>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Java 1.8.x (64-bit) IBM Java</p>
+</li>
+<li>
+<p>Java 11 (64-bit) IBM Java</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>If you have upgraded JAVA to the latest version, you must ensure that the JAVA_HOME option located at /var/opt/snapcenter/spl/etc/spl.properties is set to the correct JAVA version and the correct path.</p>
@@ -7194,7 +7238,7 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <div class="sect2">
 <h3 id="configure-sudo-privileges-for-non-root-users-for-aix-host">Configure sudo privileges for non-root users for AIX host</h3>
 <div class="paragraph">
-<p>SnapCenter 4.4 and later allows a non-root user to install the SnapCenter Plug-ins Package for AIX and to start the plug-in process. You should configure sudo privileges for the non-root user to provide access to several paths.</p>
+<p>SnapCenter 4.4 and later allows a non-root user to install the SnapCenter Plug-ins Package for AIX and to start the plug-in process. The plug-in processes will be running as an effective non-root user. You should configure sudo privileges for the non-root user to provide access to several paths.</p>
 </div>
 <div class="paragraph">
 <p><strong>What you will need</strong></p>
@@ -7202,10 +7246,7 @@ You should allocate sufficient disk space and monitor the storage consumption by
 <div class="ulist">
 <ul>
 <li>
-<p>Sudo version between 1.8.7 and 1.8.19P2.</p>
-</li>
-<li>
-<p>Ensure that the non-root user is part of the Oracle installation group.</p>
+<p>Sudo version 1.8.7 or later.</p>
 </li>
 <li>
 <p>Edit the <em>/etc/ssh/sshd_config</em> file to configure the message authentication code algorithms: MACs hmac-sha2-256 and MACs hmac-sha2-512.</p>
@@ -7252,18 +7293,6 @@ MACs hmac-sha2-256</pre>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/snapcenter/images/note.svg" alt="Note">
-</td>
-<td class="content">
-If you are managing a RAC setup, the non-root user should be an Oracle user and it cannot be just any non-root OS user.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p><strong>Steps</strong></p>
 </div>
@@ -7276,20 +7305,39 @@ If you are managing a RAC setup, the non-root user should be an Oracle user and 
 <p>Add the following lines to the /etc/sudoers file by using the visudo Linux utility.</p>
 <div class="listingblock">
 <div class="content">
-<pre>Cmnd_Alias SCCMD = sha224:checksum_value== /home/<em>AIX_USER</em>/.sc_netapp/snapcenter_aix_host_plugin.bsx,
-/opt/NetApp/snapcenter/spl/installation/plugins/uninstall,
-/opt/NetApp/snapcenter/spl/bin/spl
+<pre>Cmnd_Alias HPPACMD = sha224:checksum_value== /home/<em>AIX_USER</em>/.sc_netapp/snapcenter_aix_host_plugin.bsx,
+/opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl
 Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/<em>AIX_USER</em>/.sc_netapp/AIX_Prechecks.sh
-<em>AIX_USER</em> ALL=(ALL) NOPASSWD:SETENV: SCCMD, PRECHECKCMD
+Cmnd_Alias CONFIGCHECKCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+<em>AIX_USER</em> ALL=(ALL) NOPASSWD:SETENV: HPPACMD, PRECHECKCMD, CONFIGCHECKCMD, SCCMD
 Defaults: <em>AIX_USER</em> !visiblepw
 Defaults: <em>AIX_USER</em> !requiretty</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If you are having a RAC setup, along with the other allowed commands, you should add the following to the /etc/sudoers file: '/&lt;crs_home&gt;/bin/olsnodes'
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can obtain the value of <em>crs_home</em> from the <em>/etc/oracle/olr.loc</em> file.</p>
 </div>
 <div class="paragraph">
 <p><em>AIX_USER</em> is the name of the non-root user that you created.</p>
 </div>
 <div class="paragraph">
-<p>You can obtain the checksum value from the <strong>oracle_checksum.txt</strong> file, which is located at <em>C:\ProgramData\NetApp\SnapCenter\Package Repository</em>.</p>
+<p>You can obtain the <em>checksum_value</em> from the <strong>oracle_checksum.txt</strong> file, which is located at <em>C:\ProgramData\NetApp\SnapCenter\Package Repository</em>.</p>
 </div>
 <div class="paragraph">
 <p>If you have specified a custom location, the location will be <em>custom_path\NetApp\SnapCenter\Package Repository</em>.</p>
@@ -7306,19 +7354,6 @@ The example should be used only as a reference for creating your own data.
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Best Practice:</strong> For security reasons, you should remove the sudo entry after completing every installation or upgrade.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -7583,7 +7618,7 @@ The ASM user should have sysasm privilege.
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Terms of Use</a>

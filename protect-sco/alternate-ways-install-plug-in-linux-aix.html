@@ -161,9 +161,9 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar"><div id="version-dropdown-new" class="custom-dropdown" >
-  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.7">
+  <div class="custom-dropdown-select unselected" title="SnapCenter Software 4.8">
     <label>Version</label>
-    <span translate="no" class="notranslate">SnapCenter Software 4.7</span>
+    <span translate="no" class="notranslate">SnapCenter Software 4.8</span>
     <img src="/us-en/snapcenter/images/chevron_up.svg" alt="" class="custom-icon chevrondown invisible" />
     <img src="/us-en/snapcenter/images/chevron_down.svg" alt="" class="custom-icon chevronup" />
   </div>
@@ -171,6 +171,13 @@
   <ul class="custom-dropdown-menu"><li>
       
       <a href="https://docs.netapp.com/us-en/snapcenter/protect-sco/alternate-ways-install-plug-in-linux-aix.html" target="_self">
+        <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.8</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/us-en/snapcenter-4.7/protect-sco/alternate-ways-install-plug-in-linux-aix.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.7</span></span>
       </a>
                      
@@ -644,6 +651,8 @@
     
 
   
+
+
 
 
 
@@ -3016,11 +3025,11 @@
 </script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li 
       data-pdf-exists="true" 
-      data-pdf-filename="SnapCenter Software 4.7 docs"
+      data-pdf-filename="SnapCenter Software 4.8 docs"
       data-li-level="1#" 
       class=" "
     ><a class="na-navbar-padding" href="/us-en/snapcenter/index.html">
-        SnapCenter Software 4.7 docs
+        SnapCenter Software 4.8 docs
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Release notes"
@@ -3388,6 +3397,13 @@
     ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_iis_application_pools_to_enable_active_directory_read_permissions.html">
         Configure IIS Application Pools to enable Active Directory read permissions
       </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure audit log settings"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/snapcenter/install/task_configure_audit_log_settings.html">
+        Configure audit log settings
+      </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Add storage systems"
       data-li-level="2#" 
@@ -6759,7 +6775,7 @@
         
 
         <li class="n-breadcrumb__list-item">
-          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.7</a>
+          <a href="/us-en/snapcenter/">SnapCenter&nbsp;Software&nbsp;4.8</a>
         </li>
 
       </ul>
@@ -6776,7 +6792,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-22 06:28:51 +0000">06/22/2022</time>
+    <time datetime="2022-12-22 18:16:48 +0000">12/22/2022</time>
     
   
 
@@ -6794,6 +6810,41 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>You can also install the Plug-ins Package for Linux or AIX manually by either using the cmdlets or CLIs.</p>
+</div>
+<div class="paragraph">
+<p>Before installing the plug-in manually, you should validate the signature of the binary package by using the key <strong>snapcenter_public_key.pub</strong> and <strong>snapcenter_linux_host_plugin.bin.sig</strong> located at <em>C:\ProgramData\NetApp\SnapCenter\Package Repository</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Ensure that <strong>OpenSSL 1.0.2g</strong> is installed on the host where you want to install the plug-in.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Validate the signature of the binary package by running the command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For Linux host: <code>openssl dgst -sha256 -verify snapcenter_public_key.pub -signature snapcenter_linux_host_plugin.bin.sig snapcenter_linux_host_plugin.bin</code></p>
+</li>
+<li>
+<p>For AIX host: <code>openssl dgst -sha256 -verify snapcenter_public_key.pub -signature snapcenter_linux_host_plugin.bsx.sig snapcenter_linux_host_plugin.bsx</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="install-on-multiple-remote-hosts-using-cmdlets">Install on multiple remote hosts using cmdlets</h2>
 <div class="sectionbody">
@@ -6841,7 +6892,7 @@ The precheck script does not validate the plug-in port firewall status if it is 
 </ol>
 </div>
 <div class="paragraph">
-<p>The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running <em>Get-Help command_name</em>. Alternatively, you can also refer to the <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2883300" target="_blank" rel="noopener">SnapCenter Software Cmdlet Reference Guide</a>.</p>
+<p>The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running <em>Get-Help command_name</em>. Alternatively, you can also refer to the <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2885482" target="_blank" rel="noopener">SnapCenter Software Cmdlet Reference Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -6900,10 +6951,10 @@ There will be stale volumes, directories, and lock file if the failover happens 
 </div>
 </div>
 <div class="sect1">
-<h2 id="install-plug-ins-package-for-linux-in-silent-mode-or-console-mode">Install Plug-ins Package for Linux in silent mode or console mode</h2>
+<h2 id="install-plug-ins-package-for-linux-in-silent-mode">Install Plug-ins Package for Linux in silent mode</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can install the SnapCenter Plug-ins Package for Linux either in console mode or in silent mode by using the command-line interface (CLI).</p>
+<p>You can install the SnapCenter Plug-ins Package for Linux in silent mode by using the command-line interface (CLI).</p>
 </div>
 <div class="paragraph">
 <p><strong>What you will need</strong></p>
@@ -6942,50 +6993,10 @@ There will be stale volumes, directories, and lock file if the failover happens 
 <p>From the command prompt, navigate to the directory where you downloaded the installation file.</p>
 </li>
 <li>
-<p>Depending on your preferred mode of installation, perform one of the following step.</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Install mode</th>
-<th class="tableblock halign-left valign-top">Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Console mode</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Run:</p>
-<div class="paragraph">
-<p><code>./SnapCenter_linux_host_plugin.bin –i console</code></p>
-</div>
-</li>
-<li>
-<p>Follow the on-screen prompts to complete the installation.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Silent mode</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Run:</p>
-</div>
+<p>Run</p>
 <div class="paragraph">
 <p><code>./SnapCenter_linux_host_plugin.bin-i silent-DPORT=8145-DSERVER_IP=SnapCenter_Server_FQDN-DSERVER_HTTPS_PORT=SnapCenter_Server_Port-DUSER_INSTALL_DIR==/opt/custom_path</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+</div>
 </li>
 <li>
 <p>Edit the spl.properties file located at <em>/var/opt/snapcenter/spl/etc/</em> to add SPL_ENABLED_PLUGINS=SCO,SCU, and then restart the SnapCenter Plug-in Loader service.</p>
@@ -7083,7 +7094,7 @@ The installation of the plug-ins package registers the plug-ins on the host and 
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Terms of Use</a>
