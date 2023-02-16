@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head class="at-element-marker">
-  <title></title>
+  <title>Clone backups using PowerShell cmdlets</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="" />
+  <meta property="og:title" content="Clone backups using PowerShell cmdlets" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/us-en/snapcenter/protect-hana/task_cancel_backup_operations_for_sap_hana/" />
-	<meta property="og:description" content="" />
+	<meta property="og:url" content="https://docs.netapp.com/us-en/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" />
+	<meta property="og:description" content="The clone workflow includes planning, performing the clone operation, and monitoring the operation." />
   <meta property="og:image" content="https://docs.netapp.com/us-en/snapcenter/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="">
-  <meta name="keywords" content=" "><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="The clone workflow includes planning, performing the clone operation, and monitoring the operation.">
+  <meta name="keywords" content=" clone"><!-- Icons -->
   <link rel="icon" href="/us-en/snapcenter/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -170,35 +170,35 @@
 
   <ul class="custom-dropdown-menu"><li>
       
-      <a href="https://docs.netapp.com/us-en/snapcenter/" target="_self">
+      <a href="https://docs.netapp.com/us-en/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.8</span></span>
       </a>
                      
     </li>
     <li>
       
-      <a href="https://docs.netapp.com/us-en/snapcenter-47/" target="_self">
+      <a href="https://docs.netapp.com/us-en/snapcenter-47/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.7</span></span>
       </a>
                      
     </li>
     <li>
       
-      <a href="https://docs.netapp.com/us-en/snapcenter-46/" target="_self">
+      <a href="https://docs.netapp.com/us-en/snapcenter-46/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.6</span></span>
       </a>
                      
     </li>
     <li>
       
-      <a href="https://docs.netapp.com/us-en/snapcenter-45/" target="_self">
+      <a href="https://docs.netapp.com/us-en/snapcenter-45/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self">
         <span translate="no" class="notranslate"><span>SnapCenter Software</span><span class="version"> 4.5</span></span>
       </a>
                      
     </li>
     
   </ul>
-</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/issues/new?body=Page%3A%20[](https://docs.netapp.com/us-en/snapcenter/protect-hana/task_cancel_backup_operations_for_sap_hana/)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/blob/main/protect-hana/task_cancel_backup_operations_for_sap_hana.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/snapcenter/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
+</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/issues/new?body=Page%3A%20[Clone backups using PowerShell cmdlets](https://docs.netapp.com/us-en/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/blob/main/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/snapcenter/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">ON THIS PAGE</div>
@@ -233,15 +233,12 @@
           <li class="n-top-hat__list-item">
             <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Customer Stories</a>
           </li>
-          <li class="n-top-hat__list-item">
-            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
-          </li>
         </ul>
       </div>
       <div class="n-top-hat__utils">
         <ul class="n-top-hat__list">
           <li class="n-top-hat__list-item">
-            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
           </li>
         </ul>
       </div>
@@ -321,51 +318,24 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/us-en/snapcenter/" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/snapcenter/" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/snapcenter/" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/ko-kr/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/snapcenter/" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/snapcenter/" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/zh-tw/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/snapcenter/" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/de-de/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/snapcenter/" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/fr-fr/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
   </div>
-  <script>
-    $(function(){
-        var currentLocalization = $('html').attr('lang');
-
-        var localizationsDictionary = {
-            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
-            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
-            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
-            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
-            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
-            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
-            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
-            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
-            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
-            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
-            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
-            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
-            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
-            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
-            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
-        };
-
-        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
-            $('.n-property-bar__property-link').attr('href', '/');
-        }
-    });
-  </script>
   <!-- End property bar -->
 </header>
 
@@ -1159,6 +1129,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -4121,7 +4093,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Clone backups using PowerShell cmdlets"
       data-li-level="3#" 
-      class=" "
+      class="  active "
     ><a class="na-navbar-padding" href="/us-en/snapcenter/protect-scsql/task_clone_backups_using_powershell_cmdlets_for_sql.html">
         Clone backups using PowerShell cmdlets
       </a></li><li 
@@ -6783,14 +6755,14 @@
 </div>
 
       <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading"></h1>
+  <h1 class="n-doc__component-detail-heading">Clone backups using PowerShell cmdlets</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-11-23 14:08:47 +0000">11/23/2022</time>
+    <time datetime="2023-02-15 07:49:20 +0000">02/15/2023</time>
     
   
 
@@ -6808,44 +6780,11 @@
 
 </p>
 
-<hr>
-<div class="paragraph">
-<p>permalink: protect-hana/task_cancel_backup_operations_for_sap_hana.html
-sidebar: sidebar
-keywords:
-summary: 'You can cancel backup operations that are queued.'
----
-= Cancel backup operations for SAP HANA
-:icons: font
-:imagesdir: ../media/</p>
+<div class="paragraph lead">
+<p>The clone workflow includes planning, performing the clone operation, and monitoring the operation.</p>
 </div>
 <div class="paragraph">
-<p>You can cancel backup operations that are queued.</p>
-</div>
-<div class="paragraph">
-<p><strong>What you will need</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You must be logged in as the SnapCenter Admin or job owner to cancel operations.</p>
-</li>
-<li>
-<p>You can cancel a backup operation from either the <strong>Monitor</strong> page or the <strong>Activity</strong> pane.</p>
-</li>
-<li>
-<p>You cannot cancel a running backup operation.</p>
-</li>
-<li>
-<p>You can use the SnapCenter GUI, PowerShell cmdlets, or CLI commands to cancel the backup operations.</p>
-</li>
-<li>
-<p>The <strong>Cancel Job</strong> button is disabled for operations that cannot be canceled.</p>
-</li>
-<li>
-<p>If you selected <strong>All members of this role can see and operate on other members objects</strong> in Users\Groups page while creating a role, you can cancel the queued backup operations of other members while using that role.</p>
-</li>
-</ul>
+<p>You must have prepared the PowerShell environment to execute the PowerShell cmdlets.</p>
 </div>
 <div class="paragraph">
 <p><strong>Steps</strong></p>
@@ -6853,59 +6792,198 @@ summary: 'You can cancel backup operations that are queued.'
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Perform one of the following actions:</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">From the&#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Monitor page</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>In the left navigation pane, click <strong>Monitor</strong> &gt; <strong>Jobs</strong>.</p>
+<p>Initiate a connection session with the SnapCenter Server for a specified user by using the Open-SmConnection cmdlet.</p>
+<div class="listingblock">
+<div class="content">
+<pre>Open-SmConnection  -SMSbaseurl  https://snapctr.demo.netapp.com:8146</pre>
+</div>
+</div>
 </li>
 <li>
-<p>Select the operation, and then click <strong>Cancel Job</strong>.</p>
+<p>List the backups that can be cloned by using the Get-SmBackup or Get-SmResourceGroup cmdlet.</p>
+<div class="paragraph">
+<p>This example displays information about all available backups:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>C:\PS&gt;PS C:\&gt; Get-SmBackup
+
+BackupId   BackupName                     BackupTime   BackupType
+--------   ----------                     ----------   ----------
+1          Payroll Dataset_vise-f6_08...  8/4/2015     Full Backup
+                                          11:02:32 AM
+
+2          Payroll Dataset_vise-f6_08...  8/4/2015
+                                          11:23:17 AM</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example displays information about a specified resource group, its resources, and associated policies:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PS C:\&gt; Get-SmResourceGroup -ListResources –ListPolicies
+
+Description :
+CreationTime : 8/4/2015 3:44:05 PM
+ModificationTime : 8/4/2015 3:44:05 PM
+EnableEmail : False
+EmailSMTPServer :
+EmailFrom :
+EmailTo :
+EmailSubject :
+EnableSysLog : False
+ProtectionGroupType : Backup
+EnableAsupOnFailure : False
+Policies : {FinancePolicy}
+HostResourceMaping : {}
+Configuration : SMCoreContracts.SmCloneConfiguration
+LastBackupStatus :
+VerificationServer :
+EmailBody :
+EmailNotificationPreference : Never
+VerificationServerInfo : SMCoreContracts.SmVerificationServerInfo
+SchedulerSQLInstance :
+CustomText :
+CustomSnapshotFormat :
+SearchResources : False
+ByPassCredential : False
+IsCustomSnapshot :
+MaintenanceStatus : Production
+PluginProtectionGroupTypes : {SMSQL}
+Name : Payrolldataset
+Type : Group
+Id : 1
+Host :
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False
+CloneLevel : 0
+ApplySnapvaultUpdate : False
+ApplyRetention : False
+RetentionCount : 0
+RetentionDays : 0
+ApplySnapMirrorUpdate : False
+SnapVaultLabel :
+MirrorVaultUpdateRetryCount : 7
+AppPolicies : {}
+Description : FinancePolicy
+PreScriptPath :
+PreScriptArguments :
+PostScriptPath :
+PostScriptArguments :
+ScriptTimeOut : 60000
+DateModified : 8/4/2015 3:43:30 PM
+DateCreated : 8/4/2015 3:43:30 PM
+Schedule : SMCoreContracts.SmSchedule
+PolicyType : Backup
+PluginPolicyType : SMSQL
+Name : FinancePolicy
+Type :
+Id : 1
+Host :
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False
+CloneLevel : 0
+clab-a13-13.sddev.lab.netapp.com
+DatabaseGUID :
+SQLInstance : clab-a13-13
+DbStatus : AutoClosed
+DbAccess : eUndefined
+IsSystemDb : False
+IsSimpleRecoveryMode : False
+IsSelectable : True
+SqlDbFileGroups : {}
+SqlDbLogFiles : {}
+AppFileStorageGroups : {}
+LogDirectory :
+AgName :
+Version :
+VolumeGroupIndex : -1
+IsSecondary : False
+Name : TEST
+Type : SQL Database
+Id : clab-a13-13\TEST
+Host : clab-a13-13.sddev.mycompany.com
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False</pre>
+</div>
+</div>
 </li>
-</ol>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Activity pane</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
 <li>
-<p>After initiating the backup operation, click <strong><span class="image"><img src="../media/activity_pane_icon.gif" alt="activity pane icon"></span></strong> on the Activity pane to view the five most recent operations.</p>
+<p>Initiate a clone operation from an existing backup by using the New-SmClone cmdlet.</p>
+<div class="paragraph">
+<p>This example creates a clone from a specified backup with all logs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PS C:\&gt; New-SmClone
+-BackupName payroll_dataset_vise-f3_08-05-2015_15.28.28.9774
+-Resources @{"Host"="vise-f3.sddev.mycompany.com";
+"Type"="SQL Database";"Names"="vise-f3\SQLExpress\payroll"}
+-CloneToInstance vise-f3\sqlexpress -AutoAssignMountPoint
+-Suffix _clonefrombackup
+-LogRestoreType All -Policy clonefromprimary_ondemand
+
+PS C:&gt; New-SmBackup -ResourceGroupName PayrollDataset -Policy FinancePolicy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example creates a clone to a specified Microsoft SQL Server instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PS C:\&gt; New-SmClone
+-BackupName "BackupDS1_NY-VM-SC-SQL_12-08-2015_09.00.24.8367"
+-Resources @{"host"="ny-vm-sc-sql";"Type"="SQL Database";
+"Names"="ny-vm-sc-sql\AdventureWorks2012_data"}
+-AppPluginCode SMSQL -CloneToInstance "ny-vm-sc-sql"
+-Suffix _CLPOSH -AssignMountPointUnderPath "C:\SCMounts"</pre>
+</div>
+</div>
 </li>
 <li>
-<p>Select the operation.</p>
-</li>
-<li>
-<p>In the Job Details page, click <strong>Cancel Job</strong>.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+<p>View the status of the clone job by using the Get-SmCloneReport cmdlet.</p>
+<div class="paragraph">
+<p>This example displays a clone report for the specified job ID:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PS C:\&gt; Get-SmCloneReport -JobId 186
+
+SmCloneId : 1
+SmJobId : 186
+StartDateTime : 8/3/2015 2:43:02 PM
+EndDateTime : 8/3/2015 2:44:08 PM
+Duration : 00:01:06.6760000
+Status : Completed
+ProtectionGroupName : Draper
+SmProtectionGroupId : 4
+PolicyName : OnDemand_Clone
+SmPolicyId : 4
+BackupPolicyName : OnDemand_Full_Log
+SmBackupPolicyId : 1
+CloneHostName : SCSPR0054212005.mycompany.com
+CloneHostId : 4
+CloneName : Draper__clone__08-03-2015_14.43.53
+SourceResources : {Don, Betty, Bobby, Sally}
+ClonedResources : {Don_DRAPER, Betty_DRAPER, Bobby_DRAPER,
+                   Sally_DRAPER}</pre>
+</div>
+</div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The operation is canceled, and the resource is reverted to the previous state.</p>
+<p>The information regarding the parameters that can be used with the cmdlet and their descriptions can be obtained by running <em>Get-Help command_name</em>. Alternatively, you can also refer to the <a href="https://library.netapp.com/ecm/ecm_download_file/ECMLP2885482" target="_blank" rel="noopener">SnapCenter Software Cmdlet Reference Guide</a>.</p>
 </div>
 
     </article>
@@ -6923,7 +7001,7 @@ summary: 'You can cancel backup operations that are queued.'
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Terms of Use</a>
