@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head class="at-element-marker">
-  <title>REST API supported for disaster recovery of SnapCenter Server</title>
+  <title>Disaster recovery (DR) REST APIs</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="REST API supported for disaster recovery of SnapCenter Server" />
+  <meta property="og:title" content="Disaster recovery (DR) REST APIs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/us-en/snapcenter/sc-automation/rest_api_workflows_disaster_recovery_of_snapcenter_server.html" />
 	<meta property="og:description" content="SnapCenter disaster recovery functionality uses REST APIs to backup SnapCenter Server." />
@@ -204,7 +204,7 @@
     </li>
     
   </ul>
-</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/issues/new?body=Page%3A%20[REST API supported for disaster recovery of SnapCenter Server](https://docs.netapp.com/us-en/snapcenter/sc-automation/rest_api_workflows_disaster_recovery_of_snapcenter_server.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/blob/main/sc-automation/rest_api_workflows_disaster_recovery_of_snapcenter_server.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/snapcenter/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
+</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/issues/new?body=Page%3A%20[Disaster recovery (DR) REST APIs](https://docs.netapp.com/us-en/snapcenter/sc-automation/rest_api_workflows_disaster_recovery_of_snapcenter_server.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/snapcenter/blob/main/sc-automation/rest_api_workflows_disaster_recovery_of_snapcenter_server.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/snapcenter/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/snapcenter/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">ON THIS PAGE</div>
@@ -6763,14 +6763,14 @@
 </div>
 
       <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">REST API supported for disaster recovery of SnapCenter Server</h1>
+  <h1 class="n-doc__component-detail-heading">Disaster recovery (DR) REST APIs</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-05-27 10:08:34 +0000">05/27/2022</time>
+    <time datetime="2023-03-07 06:20:31 +0000">03/07/2023</time>
     
   
 
@@ -6788,8 +6788,118 @@
 
 </p>
 
-<div class="paragraph lead">
-<p>SnapCenter disaster recovery (DR) functionality uses REST APIs to backup SnapCenter Server. Using REST APIs, you can perform the following operations on the REST APIs Swagger page. For information to access the Swagger page, see <a href="https://docs.netapp.com/us-en/snapcenter/sc-automation/task_how%20to_access_rest_apis_using_the_swagger_api_web_page.html">How to access REST APIs using the swagger API web page</a>.</p>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>SnapCenter disaster recovery (DR) functionality uses REST APIs to backup SnapCenter Server. Perform the following steps before using the DR REST APIs.</p>
+</div>
+<div class="paragraph">
+<p><strong>Steps</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new Server DR backup, which restores a SnapCenter Server from a specified Server DR backup using DR Backup REST API: <code>/4.5/disasterrecovery/server/backup</code></p>
+</li>
+<li>
+<p>Bring up the secondary server machine, but before installing the SnapCenter Server on the secondary server you should complete the prerequisites.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The alternate server host name/Host FQDN should be same as the primary server host name, but the IP address can be different.</p>
+</li>
+<li>
+<p>Secondary server version should be the same as the primary server.</p>
+</li>
+<li>
+<p>Secondary SnapCenter should be installed on the same location and on same port as primary.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Before triggering the server DR restore operation, you should bring up the target path or the path where the DR backups are stored after the disaster.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure that the DR backup files are copied to the new SnapCenter Server using the following command:
+<code>xcopy &lt;Ssource_Path&gt; \\&lt;Destination_Server_IP&gt;\&lt;Folder_Path&gt; /O /X /E /H /K {ex : xcopy C:\DRBackup \\10.225.81.114\c$\DRBackup /O /X /E /H /K}</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Install SnapCenter Server on the secondary machine.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>While performing the DR restore operation, you should ensure that no jobs are running related to the SnapCenter Server.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Install the secondary SnapCenter Server in the same location and on the same port as primary server.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Perform server DR restore operation using the DR restore API:  <code>/4.5/disasterrecovery/server/restore</code></p>
+<div class="paragraph">
+<p>If the plug-in is not able to resolve the server hostname, log in to each of the plug-in host and add the etc/host entry for the new IP in the &lt;New IP&gt; SC_Server_Name format.
+For example, <code>10.225.81.35 SCServer1</code></p>
+</div>
+<div class="paragraph">
+<p>The server etc/host entries will not be restored. You can restore it manually from the DR backup folder.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+For an F5 setup, restore operation is performed as stand-alone, you should run a set of commands to create the F5 again. See, Link: <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_Migrate_SnapCenter_migrate_to_another_Server" target="_blank" rel="noopener">How to migrate SnapCenter to another server</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+After DR restore, the host will be added but you should install the plug-in manually.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/snapcenter/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Repository backup schedule will be restored only if you install the SnapCenter Plug-in for Windows and attach NetApp LUN to the server machine.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rest-api-supported-for-disaster-recovery-of-snapcenter-server">REST API supported for disaster recovery of SnapCenter Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using REST APIs, you can perform the following operations on the REST APIs Swagger page. For information to access the Swagger page, see <a href="https://docs.netapp.com/us-en/snapcenter/sc-automation/task_how%20to_access_rest_apis_using_the_swagger_api_web_page.html">How to access REST APIs using the swagger API web page</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>What you will need</strong></p>
@@ -6812,14 +6922,12 @@
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 36.3636%;">
-<col style="width: 45.4545%;">
-<col style="width: 9.091%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Step</th>
 <th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">REST API</th>
 <th class="tableblock halign-left valign-top">HTTP method</th>
@@ -6827,9 +6935,6 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>1</p>
-</div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Fetch existing SnapCenter Server DR backups</p>
 </div>
@@ -6854,9 +6959,6 @@ You should provide the target path where the DR backups are stored.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new Server DR backup.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -6868,39 +6970,7 @@ You should provide the target path where the DR backups are stored.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>3</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Restores a SnapCenter Server from a specified Server DR backup.</p>
-</div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The alternate server host name should be same as the primary server, but the IP address can be different.</p>
-</li>
-<li>
-<p>Server version should be the same as the primary server.</p>
-</li>
-<li>
-<p>Ensure the DR backup files are copied to the new SnapCenter server using the following command:</p>
-<div class="paragraph">
-<p><code>xcopy &lt;Ssource_Path&gt; \\&lt;Destination_Server_IP&gt;\&lt;Folder_Path&gt; /O /X /E /H /K  {ex : xcopy C:\DRBackup \\10.225.81.114\c$\DRBackup /O /X /E /H /K}</code></p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If the plug-in is not able to resolve the server hostname, log into each of the plug-in host and add the etc/host entry for the new IP in the format:
-<code>&lt;New IP&gt;	SC_Server_Name</code></p>
-</div>
-<div class="paragraph">
-<p>For example, 10.225.81.35	SCServer1</p>
-</div>
-<div class="paragraph">
-<p>The server etc/host file will not be restored. You can restore it manually from the DR backup folder.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>/4.5/disasterrecovery/server/restore</code></p>
@@ -6910,9 +6980,6 @@ You should provide the target path where the DR backups are stored.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>4</p>
-</div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete the Server DR backup based on backup name.</p>
 </div></div></td>
@@ -6924,9 +6991,6 @@ You should provide the target path where the DR backups are stored.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>5</p>
-</div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Enable or disable the storage DR</p>
 </div></div></td>
@@ -6941,6 +7005,8 @@ You should provide the target path where the DR backups are stored.
 </table>
 <div class="paragraph">
 <p>For more information, see the <a href="https://www.youtube.com/watch?v=Nbr_wm9Cnd4&amp;list=PLdXI3bZJEw7nofM6lN44eOe4aOSoryckg" target="_blank" rel="noopener">Disaster Recovery APIs</a> video.</p>
+</div>
+</div>
 </div>
 
     </article>
